@@ -36,7 +36,7 @@ export interface IRoom extends Document{
    numOfBeds: Number,
    isInternet: Boolean,
    isBreakfast: Boolean,
-   isAirconditioned: Boolean,
+   isAirConditioned: Boolean,
    isPetsAllowed: Boolean,
    isRoomCleaning: Boolean, 
    ratings: Number,
@@ -72,7 +72,7 @@ const roomSchema: Schema = new Schema({
    location: {
       type: {
          type: String,
-         enum:"Point"
+         enum:["Point"]
       },
       coordinates: {
          type: [Number],
@@ -100,7 +100,7 @@ const roomSchema: Schema = new Schema({
       type: Boolean,
       default:false
    },
-   isAirconditioned: {
+   isAirConditioned: {
       type: Boolean,
       default:false
    },
@@ -136,8 +136,8 @@ const roomSchema: Schema = new Schema({
       type: String,
       required: [true, "Please enter room category"],
       enum: {
-         values: ["King", "Single", "Twin"],
-         message:["Please select correct categry for room"]
+         values: ["King", "Single", "Twins"],
+         message:"Please select correct categry for room"
       },
    },
    
