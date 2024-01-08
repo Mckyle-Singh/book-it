@@ -4,6 +4,7 @@ import { IRoom } from "@/backend/models/Room";
 import React from "react";
 import StarRatings from "react-star-ratings"
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props{
    room:IRoom
@@ -26,7 +27,7 @@ const RoomItem = ({room}:Props) => {
             />
             <div className="card-body d-flex flex-column">
                <h5 className="card-title">
-                  <a href="/rooms/roomId">{room?.name}</a>
+                  <Link href={`/rooms/${room?._id}`}>{room?.name}</Link>
                </h5>
                <div className="mt-auto">
                   <p className="card-text mt-2"><b>${room?.pricePerNight}</b> / night</p>

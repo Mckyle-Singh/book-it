@@ -4,7 +4,7 @@ import mongoose, { Schema,Document } from "mongoose";
 // used to create a schema for the database
 
 export interface IImage extends Document{
-   public_id: String,
+   public_id: string,
    url: String, 
 }
 
@@ -32,8 +32,8 @@ export interface IRoom extends Document{
    address: String,
    pricePerNight: number,
    location: ILocation,
-   guestCapacity: Number,
-   numOfBeds: Number,
+   guestCapacity: number,
+   numOfBeds: number,
    isInternet: Boolean,
    isBreakfast: Boolean,
    isAirConditioned: Boolean,

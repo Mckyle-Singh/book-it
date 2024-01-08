@@ -1,8 +1,9 @@
 import Home from "@/components/Home"
 import Error from "./error"; 
-import ErrorHandler from "@/backend/utils/errorHandler";
 
-export const dynamic ="force-dynamic"
+export const metadata = {
+  title:"Home Page-Bookit"
+}
 
 const getRooms = async () => {
   const res = await fetch(`${process.env.API_URL}/api/rooms`);
