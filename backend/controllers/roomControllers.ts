@@ -3,40 +3,38 @@ import Room, { IRoom } from '../models/Room'
 import { catchAsyncErrors } from "../middleware/catchAsyncErrors";
 import ErrorHandler from "../utils/errorHandler";
 import APIFilters from "../utils/APIFilters";
+import { error } from "console";
 
 
-//Get all rooms=> /api/rooms
-export const allRooms = catchAsyncErrors( async (req: NextRequest) => {
+// Get all rooms  =>  /api/rooms
+export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
+   const resPerPage: number = 40;
    
-   //shows responses for page
-   const resPerPage: number = 4
-
-   const { searchParams } = new URL(req.url)
+   throw new ErrorHandler("error messag",404)
    
+   const { searchParams } = new URL(req.url);
+ 
    const queryStr: any = {};
-
    searchParams.forEach((value, key) => {
-      queryStr[key] = value
+     queryStr[key] = value;
    });
-
-
-   
+ 
    const apiFilters = new APIFilters(Room, queryStr).search().filter();
-   
-   let rooms: IRoom[] = await apiFilters.query
-   
-   const filteredRoomsCount: Number = rooms.length
-   
+ 
+   let rooms: IRoom[] = await apiFilters.query;
+   const filteredRoomsCount: number = rooms.length;
+ 
    apiFilters.pagination(resPerPage);
    rooms = await apiFilters.query.clone();
-
+ 
    return NextResponse.json({
-      success: true,
-      filteredRoomsCount,
-      resPerPage,
-      rooms
-   })
-});
+     success: true,
+     filteredRoomsCount,
+     resPerPage,
+     rooms,
+   });
+ });
+ 
 
 //Create new room => /api/rooms
 
