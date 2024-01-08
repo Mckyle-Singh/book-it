@@ -10,8 +10,6 @@ import { error } from "console";
 export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
    const resPerPage: number = 40;
    
-   throw new ErrorHandler("error messag",404)
-   
    const { searchParams } = new URL(req.url);
  
    const queryStr: any = {};

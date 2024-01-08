@@ -6,7 +6,8 @@ export default function Error({
 }: {
   error: Error ;
   reset?: () => void;
-}) {
+   }) {
+   
    return (
       <div>
          <div className="d-flex justify-content-center alig-item-center vh-100">
