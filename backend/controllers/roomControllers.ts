@@ -3,12 +3,12 @@ import Room, { IRoom } from '../models/Room'
 import { catchAsyncErrors } from "../middleware/catchAsyncErrors";
 import ErrorHandler from "../utils/errorHandler";
 import APIFilters from "../utils/APIFilters";
-import { error } from "console";
+
 
 
 // Get all rooms  =>  /api/rooms
 export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
-   const resPerPage: number = 40;
+   const resPerPage: number = 5;
    
    const { searchParams } = new URL(req.url);
  
